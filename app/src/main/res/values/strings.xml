@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FinalProj</string>
+    <string name="dumbbell">운동 정보</string>
+    <string name="pencil">운동 기록</string>
+    <string name="menu_drawer_open">Drawer Open</string>
+    <string name="menu_drawer_close">Drawer Close</string>
+</resources>
