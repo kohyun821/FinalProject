@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="핸드폰 번호"
+        android:hint="핸드폰 번호(숫자만 입력해 주세요)"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextPassword"
@@ -89,6 +89,7 @@
         android:onClick="signupButtonClicked"
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextEmail"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
