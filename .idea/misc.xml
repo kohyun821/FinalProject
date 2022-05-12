@@ -21,6 +21,19 @@
         <entry key="..\:/Users/kohyu/AndroidStudioProjects/FinalProj/app/src/main/res/layout/activity_welcome.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/kohyu/AndroidStudioProjects/FinalProj/app/src/main/res/layout/content_layout.xml" value="0.15704154002026344" />
         <entry key="..\:/Users/kohyu/AndroidStudioProjects/FinalProj/app/src/main/res/menu/main_drawer_menu.xml" value="0.2638888888888889" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/drawable/button_sign_up.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/drawable/ic_dumbbell.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/drawable/ic_edit_user.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/drawable/ic_pencil.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_admin_drawer_base.xml" value="0.25" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_drawer_base.xml" value="0.24808184143222506" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_forgot_password.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/content_layout.xml" value="0.1969309462915601" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/main_drawer_header.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/menu/admin_drawer_menu.xml" value="0.1" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/menu/main_drawer_menu.xml" value="0.3619791666666667" />
       </map>
     </option>
   </component>

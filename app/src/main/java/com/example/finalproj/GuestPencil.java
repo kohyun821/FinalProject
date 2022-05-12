@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.finalproj.databinding.ActivityGuestPencilBinding;
 
-public class GuestPencil extends AppCompatActivity {
+public class GuestPencil extends DrawerBaseActivity {
 
     ActivityGuestPencilBinding activityGuestPencilBinding;
 
@@ -15,5 +15,6 @@ public class GuestPencil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityGuestPencilBinding = ActivityGuestPencilBinding.inflate(getLayoutInflater());
         setContentView(activityGuestPencilBinding.getRoot());
+        allocateActivityTitle("운동 기록 등록");
     }
 }

@@ -145,7 +145,12 @@ public class SignInActivity extends AppCompatActivity {
 
                                             //userAuth가 회원이라면 DashboardActivity를 시행
                                             if(key.equals("userAuth") && value.equals("회원")){
+                                                finish();
                                                 startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                                            }
+                                            if(key.equals("userAuth") && value.equals("admin")){
+                                                finish();
+                                                startActivity(new Intent(SignInActivity.this,AdminDashboard.class));
                                             }
                                         }
                                     } else {

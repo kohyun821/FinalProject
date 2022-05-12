@@ -26,8 +26,6 @@ public class DashboardActivity extends DrawerBaseActivity {
     DatabaseReference rootRef;
     DatabaseReference orderRef;
 
-//    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,6 @@ public class DashboardActivity extends DrawerBaseActivity {
         String ID = "" ;
         String Name="";
 
-//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
         orderRef = rootRef.child("Users").child(user.getUid());
         orderRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -65,22 +62,6 @@ public class DashboardActivity extends DrawerBaseActivity {
                 }
             }
         });
-
-
-//        mDatabase.child("Users").child(ID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    //error
-//                    Log.e("파이어베이스", "Error getting data", task.getException());
-//                }
-//                else {
-//                    //정상 작동
-//                    Log.d("파이어베이스", String.valueOf(task.getResult().getValue()));
-//                }
-//
-//            }
-//        });
 
     }
 }

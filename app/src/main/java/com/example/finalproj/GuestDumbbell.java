@@ -15,5 +15,6 @@ public class GuestDumbbell extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         activityGuestDumbbellBinding = ActivityGuestDumbbellBinding.inflate(getLayoutInflater());
         setContentView(activityGuestDumbbellBinding.getRoot());
+        allocateActivityTitle("운동 기록 확인");
     }
 }
