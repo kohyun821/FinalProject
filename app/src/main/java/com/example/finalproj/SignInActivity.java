@@ -76,39 +76,6 @@ public class SignInActivity extends AppCompatActivity {
         String userName = editTextUserName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-
-//        //mysql
-//        Response.Listener<String> responseListener = new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONObject jsonObject = new JSONObject(response);
-//                    boolean success = jsonObject.getBoolean("success");
-//                    if(success){//성공
-//                        progressBar.setVisibility(View.GONE);
-//
-//                        String userID = jsonObject.getString("userID");
-//                        String userPass = jsonObject.getString("userPassword");
-//                        Toast.makeText(getApplicationContext(), "로그인에 성공 했습니다.",Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(SignInActivity.this,DashboardActivity.class);
-//                        intent.putExtra("userID",userID);
-//                        intent.putExtra("userPass",userPass);
-//                        startActivity(intent);
-//                        finish();
-//                    }else{
-//                        progressBar.setVisibility(View.GONE);
-//                        Toast.makeText(SignInActivity.this,"로그인에 실패하였습니다 :(",Toast.LENGTH_LONG).show();
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//        LoginRequest loginRequest = new LoginRequest(userName, password, responseListener);
-//        RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
-//        queue.add(loginRequest);
-
-
         //이메일이 다르다면
         if(!Patterns.EMAIL_ADDRESS.matcher(userName).matches() || editTextPassword.length() < 6){
             if(!Patterns.EMAIL_ADDRESS.matcher(userName).matches()){
@@ -144,11 +111,11 @@ public class SignInActivity extends AppCompatActivity {
                                             Log.d("TAG", key + ":" + value);
 
                                             //userAuth가 회원이라면 DashboardActivity를 시행
-                                            if(key.equals("userAuth") && value.equals("회원")){
+                                            if(key.equals("auth") && value.equals("회원")){
                                                 finish();
                                                 startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
                                             }
-                                            if(key.equals("userAuth") && value.equals("admin")){
+                                            if(key.equals("auth") && value.equals("admin")){
                                                 finish();
                                                 startActivity(new Intent(SignInActivity.this,AdminDashboard.class));
                                             }

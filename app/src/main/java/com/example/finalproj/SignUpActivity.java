@@ -66,6 +66,19 @@ public class SignUpActivity extends AppCompatActivity {
         String txtEmail = editTextEmail.getText().toString().trim();
         String txtPhoneNo = editTextPhoneNo.getText().toString().trim();
         String userAuth = "회원";
+        Date date = new Date();
+
+        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
+        String currentYear = getYearFormat.format(date);
+
+        SimpleDateFormat getMmFormat = new SimpleDateFormat("MM");
+        String currentMm = getMmFormat.format(date);
+
+        SimpleDateFormat getDdFormat = new SimpleDateFormat("dd");
+        String currentDd = getDdFormat.format(date);
+
+
+        String userterm = currentYear+"-"+currentMm+"-"+currentDd;
 
         if(txtUserName.isEmpty() || txtPassword.isEmpty() || txtPassword.length() < 6 || txtPhoneNo.length() != 11 || txtEmail.isEmpty()){
             if(txtUserName.isEmpty()){
@@ -89,36 +102,6 @@ public class SignUpActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
 
             Log.e("회원가입","회원가입메소드");
-//            //mysql에 저장
-//            Response.Listener<String> responseListener = new Response.Listener<String>() {
-//                @Override
-//                public void onResponse(String response) {
-//                    try {
-//                        Log.e("회원가입","try");
-//                        JSONObject jsonObject = new JSONObject(response);
-//                        boolean success = jsonObject.getBoolean("success");
-//                        if(success){//성공
-//                            Log.e("회원가입","try if");
-//                            Toast.makeText(getApplicationContext(), "회원가입에 성공 했습니다.",Toast.LENGTH_SHORT).show();
-//                            //progressBar.setVisibility(View.GONE);
-//                            finish();
-//                        }else{
-//                            Log.e("회원가입","try else");
-//                                Toast.makeText(SignUpActivity.this,"회원가입에 실패하였습니다 :(",Toast.LENGTH_LONG).show();
-//                                progressBar.setVisibility(View.GONE);
-//                            }
-//                    } catch (JSONException e) {
-//                        Log.e("회원가입","JSONException");
-//                        e.printStackTrace();
-//                    }
-//                }
-//            };
-//            //서버로 Volley를 이용해서 요청
-//            Log.e("회원가입","try volley");
-//            RegisterRequest registerRequest = new RegisterRequest(txtEmail, txtPassword, txtUserName, txtPhoneNo, responseListener);
-//            RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
-//            queue.add(registerRequest);
-
             //firebaseDB에 저장되는 메소드
             mAuth.createUserWithEmailAndPassword(txtEmail,txtPassword)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -126,7 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
 
-                                User user = new User(txtUserName,txtPassword,txtPhoneNo,txtEmail,userAuth);
+                                User user = new User(txtUserName,txtPassword,txtPhoneNo,txtEmail,userAuth,userterm);
 
                                 FirebaseDatabase.getInstance().getReference("Users")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -134,17 +117,6 @@ public class SignUpActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-//                                            FirebaseUser user = mAuth.getCurrentUser();
-//                                            if(user !=null){
-//                                                Map<String, Object> userMap = new HashMap<>();
-//                                                userMap.put(FirebaseID.documentId,user.getUid());
-//                                                userMap.put(FirebaseID.email,txtEmail);
-//                                                userMap.put(FirebaseID.password,txtPassword);
-//                                                userMap.put(FirebaseID.phoneNo,txtPhoneNo);
-//                                                userMap.put(FirebaseID.nicname,txtUserName);
-//                                                mStore.collection(FirebaseID.user).document(user.getUid()).set(userMap, SetOptions.merge());
-//                                                finish();
-//                                            }
                                             Toast.makeText(SignUpActivity.this,"회원가입이 성공적으로 되었습니다!!!",Toast.LENGTH_LONG).show();;
                                             progressBar.setVisibility(View.GONE);
                                             finish();
