@@ -58,4 +58,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
     apply plugin: 'com.google.firebase.crashlytics'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 }

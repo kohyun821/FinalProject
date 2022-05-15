@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.finalproj" >
+    package="com.example.finalproj">
 
-    <uses-permission android:name="android.permission.INTERNET"/> <!--인터넷 권한 선언-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.FinalProj" >
+        android:theme="@style/Theme.FinalProj"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".CreateQR"
+            android:exported="false" />
         <activity
             android:name=".GuestDumbbell"
-            android:label="GuestDumbbell"
-            android:exported="false" />
+            android:exported="false"
+            android:label="GuestDumbbell" />
         <activity
             android:name=".GuestPencil"
-            android:label="GuestPencil"
-            android:exported="false" />
+            android:exported="false"
+            android:label="GuestPencil" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
