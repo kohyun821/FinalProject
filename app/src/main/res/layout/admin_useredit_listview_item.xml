@@ -22,26 +22,72 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true">
+            <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true">
 
-            <TextView
-                android:id="@+id/text_Name"
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이름 : "
+                    android:textStyle="bold"
+                    android:textSize="20dp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/text_Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이름"
+                    android:textStyle="bold"
+                    android:textSize="20dp">
+
+                </TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이름"
-                android:textStyle="bold"
-                android:textSize="20dp">
+                android:layout_alignParentStart="true">
 
-            </TextView>
 
-            <TextView
-                android:id="@+id/text_userAuth"
-                android:textSize="15dp"
-                android:text="직책"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="직책 : "
+                    android:textStyle="bold"
+                    android:textSize="13dp">
 
-            </TextView>
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/text_userAuth"
+                    android:textSize="13dp"
+                    android:text="직책"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/body"
+            android:text="     "
+            android:textSize="13dp"></TextView>
         <LinearLayout
             android:id="@+id/body2"
             android:paddingStart="8dp"
@@ -50,35 +96,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:layout_toRightOf="@id/body">
-
-            <TextView
-                android:id="@+id/text_term"
-                android:textSize="20dp"
-                android:text="계약 기간"
-                android:textStyle="bold"
+            android:layout_toLeftOf="@id/emptytext2">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true">
+                <TextView
+                    android:id="@+id/text_term"
+                    android:textSize="20dp"
+                    android:text="계약 기간"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="까지"
+                    android:textStyle="bold"
+                    android:textSize="20dp">
 
-            </TextView>
-
-            <TextView
-                android:id="@+id/text_lostterm"
-                android:textSize="15dp"
-                android:text="남은 기간"
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true">
+                <TextView
+                    android:id="@+id/text_lostterm"
+                    android:textSize="15dp"
+                    android:text="남은 기간"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 일 남음"
+                    android:textStyle="bold"
+                    android:textSize="15dp">
 
-            </TextView>
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptytext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/Btn_change"
+            android:text="     "
+            android:textSize="13dp"></TextView>
+
         <Button
             android:id="@+id/Btn_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="사용자 변경하기"
             android:layout_alignParentEnd="true"
-            android:textStyle="bold"
-            android:background="@drawable/radius">
+            android:background="@drawable/radius"
+            android:text="사용자 변경하기"
+            android:textStyle="bold">
 
         </Button>
     </RelativeLayout>
