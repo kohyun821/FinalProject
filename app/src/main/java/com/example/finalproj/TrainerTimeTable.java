@@ -10,12 +10,12 @@ import com.example.finalproj.databinding.ActivityTrainerTimeTableBinding;
 
 public class TrainerTimeTable extends TrainerDrawerBaseActivity{
 
-    @NonNull ActivityDashboardBinding activityTrainerBinding;
+    ActivityTrainerTimeTableBinding activityTrainerBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityTrainerBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
+        activityTrainerBinding = ActivityTrainerTimeTableBinding.inflate(getLayoutInflater());
         setContentView(activityTrainerBinding.getRoot());
         allocateActivityTitle("시간표 조회");
     }
