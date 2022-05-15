@@ -119,6 +119,10 @@ public class SignInActivity extends AppCompatActivity {
                                                 finish();
                                                 startActivity(new Intent(SignInActivity.this,AdminDashboard.class));
                                             }
+                                            if(key.equals("auth") && value.equals("트레이너")){
+                                                finish();
+                                                startActivity(new Intent(SignInActivity.this,TrainerActivity.class));
+                                            }
                                         }
                                     } else {
                                         Log.d("TAG", task.getException().getMessage()); //Don't ignore potential errors!
