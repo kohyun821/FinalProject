@@ -21,6 +21,16 @@
     <Button
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="추가"/>
+
+    <Spinner
+        android:id="@+id/ex_part"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:spinnerMode="dropdown"
+        android:popupBackground="#FFFFFF"
+        tools:ignore="MissingConstraints" />
+
 </LinearLayout>
