@@ -18,6 +18,8 @@ public class PartList extends AppCompatActivity {
     Button btn_add;
     TextView textView;
 
+    TextView ex_info;
+
     //데이터를 배열에 넣어서 준비
     String[] items = {"팔", "가슴", "다리"};
 
@@ -30,6 +32,10 @@ public class PartList extends AppCompatActivity {
         textView = findViewById(R.id.textView);
 
 
+        ex_info = (TextView)findViewById(R.id.ex_info);
+
+
+
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +46,9 @@ public class PartList extends AppCompatActivity {
 
                 final EditText ex_name = new EditText(PartList.this);
                 ad.setView(ex_name);
+                final EditText test = new EditText(PartList.this);
+                ad.setView(ex_info);
+
 
                 ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
