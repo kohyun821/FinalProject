@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrainerPlus">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="50dp">
+
+
+        <EditText
+            android:id="@+id/user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btncustom"
+            android:hint="사용자의 아이디를 입력해 주세요"
+            android:padding="3dp"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btncustom"
+            android:backgroundTint="@color/matching"
+            android:onClick="buttonSearching"
+            android:text="검색"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btncustom"
+            android:gravity="center_horizontal"
+            android:hint="사용자의 이름이 입력 됩니다."
+            android:padding="3dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/user_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btncustom"
+            android:gravity="center_horizontal"
+            android:hint="핸드폰 번호가 입력 됩니다."
+            android:padding="3dp"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/searchingbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btncustom"
+            android:backgroundTint="@color/matching"
+            android:onClick="buttonDate"
+            android:enabled="false"
+            android:text="날짜 검색"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/user_term"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btncustom"
+            android:gravity="center_horizontal"
+            android:hint="사용자의 만료 날짜가 보입니다."
+            android:padding="3dp"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/savebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btncustom"
+        android:backgroundTint="@color/matching"
+        android:onClick="buttonSave"
+        android:enabled="false"
+        android:text="저장"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,6 +45,11 @@ public class TrainerDrawerBaseActivity extends AppCompatActivity implements Navi
                 finish();
 //                overridePendingTransition(0,0);
                 break;
+            case R.id.nav_plus:
+                startActivity(new Intent(this,TrainerPlus.class));
+                finish();
+//                overridePendingTransition(0,0);
+                break;
         }
         return false;
     }

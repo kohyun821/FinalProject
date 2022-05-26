@@ -38,12 +38,8 @@ import javax.security.auth.callback.Callback;
 public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditListAdapter.MyRecyclerViewClickListener {
 
     ActivityAdminUserEditBinding activityAdminUserEditBinding;
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseUser user = mAuth.getCurrentUser();
     DatabaseReference rootRef;
     DatabaseReference orderRef;
-    DatabaseReference rootRef2;
-    DatabaseReference orderRef2;
     private DatabaseReference mDatabase;
 
     private int tYear;//오늘 연 월 일
@@ -65,7 +61,6 @@ public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditLi
     private String temp_name = "", temp_auth="",temp_term="",temp_lostterm="";
 
     private String key;
-    private int num;
 
     ArrayList<String> Firebasekey = new ArrayList<>();
 
@@ -107,7 +102,6 @@ public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditLi
                     rootRef = FirebaseDatabase.getInstance().getReference();
                     for(int i=0; i<Firebasekey.size();i++){
                         Log.d("파이어베이스","key : "+ Firebasekey.get(i) +"로 검색");
-                        num=i;
                         searching2(Firebasekey.get(i));
                     }
                 } else {
@@ -137,25 +131,27 @@ public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditLi
                                     StringTokenizer st = new StringTokenizer(value,"-");
                                     while(st.hasMoreTokens()){
                                         dYear=Integer.parseInt(st.nextToken());
-                                        Log.d("파이어베이스","만료 연"+dYear);
                                         dMonth=Integer.parseInt(st.nextToken());
-                                        Log.d("파이어베이스","만료 월"+dMonth);
                                         dDay=Integer.parseInt(st.nextToken());
-                                        Log.d("파이어베이스","만료 일"+dDay);
+                                        dMonth=dMonth-1;
                                     }
                                     Calendar calendar = Calendar.getInstance();
                                     tYear=calendar.get(Calendar.YEAR);
-                                    Log.d("파이어베이스","오늘 연도"+tYear);
-                                    tMonth=calendar.get(Calendar.MONTH)+1;
-                                    Log.d("파이어베이스","오늘 월"+tMonth);
+                                    tMonth=calendar.get(Calendar.MONTH);
                                     tDay=calendar.get(Calendar.DAY_OF_MONTH);
-                                    Log.d("파이어베이스","오늘 일"+tDay);
-                                    Calendar dCalender = Calendar.getInstance();
-                                    dCalender.set(dYear,dMonth,dDay);
-                                    t=calendar.getTimeInMillis();
-                                    d=dCalender.getTimeInMillis();
-                                    r=(d-t)/(24*60*60*1000);
-                                    resultNumber=(int)r+1;
+
+                                    Calendar today = Calendar.getInstance();
+                                    Calendar d_day = Calendar.getInstance();
+
+                                    d_day.set(dYear,dMonth,dDay);
+
+                                    long l_dday = d_day.getTimeInMillis()/(24*60*60*1000);
+                                    long l_today = today.getTimeInMillis()/(24*60*60*1000);
+
+                                    long sub = l_today-l_dday;
+                                    sub = sub*(-1);
+
+                                    resultNumber=(int)sub;
                                     Log.d("파이어베이스","남은 날"+resultNumber);
                                     if(resultNumber>=0){
                                         temp_lostterm=String.valueOf(resultNumber);

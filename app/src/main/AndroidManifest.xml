@@ -13,6 +13,15 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TrainerPlus"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".TrainerTimeTable"
             android:exported="false" />
         <activity
@@ -23,7 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminUserEdit"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AdminDrawerBaseActivity"
             android:exported="false" />
@@ -40,14 +49,9 @@
             android:label="GuestPencil" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-    </activity>
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
