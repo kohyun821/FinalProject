@@ -34,10 +34,6 @@ public class DashboardActivity extends DrawerBaseActivity {
         allocateActivityTitle("Dashboard");
         text_ID = (TextView) findViewById(R.id.text_ID);
         text_Name = (TextView) findViewById(R.id.text_Name);
-        DataSnapshot dataSnapshot = null;
-
-        String ID = "" ;
-        String Name="";
 
         rootRef = FirebaseDatabase.getInstance().getReference();
         orderRef = rootRef.child("Users").child(user.getUid());

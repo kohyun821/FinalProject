@@ -34,6 +34,7 @@
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_drawer_base.xml" value="0.24808184143222506" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_forgot_password.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_guest_dumbbell.xml" value="0.22" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_sign_up.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_trainer.xml" value="0.1" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_trainer_drawer_base.xml" value="0.25" />
@@ -41,9 +42,11 @@
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_trainer_time_table.xml" value="0.1" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_trainerdrawerbase.xml" value="0.1" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_trainner.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_user_timetable.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/admin_useredit_listview_item.xml" value="0.36768149882903983" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/content_layout.xml" value="0.1969309462915601" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_date_picker.xml" value="0.10106382978723404" />
+        <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/guest_healthy_item_list.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/layout/main_drawer_header.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/menu/admin_drawer_menu.xml" value="0.1" />
         <entry key="..\:/Users/skawk/AndroidStudioProjects/FinalProject/app/src/main/res/menu/main_drawer_menu.xml" value="0.3619791666666667" />

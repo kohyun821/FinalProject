@@ -13,13 +13,11 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UserTimetable"
+            android:exported="false" />
+        <activity
             android:name=".TrainerPlus"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".TrainerTimeTable"
@@ -41,8 +39,14 @@
             android:exported="false" />
         <activity
             android:name=".GuestDumbbell"
-            android:exported="false"
-            android:label="GuestDumbbell" />
+            android:exported="true"
+            android:label="GuestDumbbell">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".GuestPencil"
             android:exported="false"

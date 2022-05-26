@@ -161,10 +161,7 @@ public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditLi
                                 }
                             }
                             dataList.add(new ListItem(temp_name,temp_auth,temp_term,temp_lostterm,s));
-
                             FinishAdd();
-
-
                         } else {
                             Log.d("TAG", task.getException().getMessage()); //Don't ignore potential errors!
                         }
