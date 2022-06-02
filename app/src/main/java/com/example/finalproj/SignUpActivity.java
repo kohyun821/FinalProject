@@ -82,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if(txtUserName.isEmpty() || txtPassword.isEmpty() || txtPassword.length() < 6 || txtPhoneNo.length() != 11 || txtEmail.isEmpty()){
             if(txtUserName.isEmpty()){
-                editTextEmail.setError("유저 이름을 입력해 주세요");
+                editTextUserName.setError("유저 이름을 입력해 주세요");
                 editTextUserName.requestFocus();
             }
             if(txtPassword.isEmpty() || txtPassword.length() < 6){

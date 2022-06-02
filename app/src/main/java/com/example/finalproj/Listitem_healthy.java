@@ -8,6 +8,16 @@ public class Listitem_healthy {
     private String listitem_healthycount;
     private String listitem_healthyset;
 
+    public String getListitem_KG() {
+        return listitem_KG;
+    }
+
+    public void setListitem_KG(String listitem_KG) {
+        this.listitem_KG = listitem_KG;
+    }
+
+    private String listitem_KG;
+
     public String getListitem_healthyname() {
         return listitem_healthyname;
     }
@@ -32,9 +42,10 @@ public class Listitem_healthy {
         this.listitem_healthyset = listitem_healthyset;
     }
 
-    public Listitem_healthy(String listitem_healthyname, String listitem_healthycount, String listitem_healthyset) {
+    public Listitem_healthy(String listitem_healthyname, String listitem_healthycount, String listitem_healthyset, String listitem_KG) {
         this.listitem_healthyname = listitem_healthyname;
         this.listitem_healthycount = listitem_healthycount;
         this.listitem_healthyset = listitem_healthyset;
+        this.listitem_KG = listitem_KG;
     }
 }

@@ -13,12 +13,16 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Dialog_HealthyList"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".UserTimetable"
             android:exported="false" />
         <activity
             android:name=".TrainerPlus"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".TrainerTimeTable"
             android:exported="false" />
@@ -54,8 +58,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="false"
-            android:label="SplashActivity">
-        </activity>
+            android:label="SplashActivity" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false"

@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.airbnb.lottie.L;
@@ -38,9 +42,13 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
     FirebaseUser user = mAuth.getCurrentUser();
     DatabaseReference rootRef;
     DatabaseReference orderRef;
+    DatabaseReference mDatabase;
 
-    private String name="",count="",set="";
+    private String name="",count="",set="",KG="";
+    public String Date="2022-06-02";
     ArrayList<Listitem_healthy> dataList = new ArrayList<>();
+    RecyclerView recyclerView;
+    GuestHealthyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +56,16 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
         activityGuestDumbbellBinding = ActivityGuestDumbbellBinding.inflate(getLayoutInflater());
         setContentView(activityGuestDumbbellBinding.getRoot());
         allocateActivityTitle("운동 기록 조회 및 등록");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         calendarView = (CalendarView) findViewById(R.id.dumbbell_calview);
         button = (Button) findViewById(R.id.Btn_plus);
         textView = (TextView) findViewById(R.id.textDate);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.guest_dumbbell_RecyclerView);
+        recyclerView = (RecyclerView) findViewById(R.id.guest_dumbbell_RecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        GuestHealthyAdapter adapter = new GuestHealthyAdapter(dataList);
+        adapter = new GuestHealthyAdapter(dataList);
 
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -67,38 +76,37 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
 
                 int year=i;
                 int month=i2+1;
+                String m="";
+                if(month<10){
+                    m="0"+month;
+                }else {
+                    m=String.valueOf(month);
+                }
                 int day=i3;
+                String d="";
+                if(day<10){
+                    d="0"+day;
+                }else{
+                    d=String.valueOf(day);
+                }
 
-                String Date = year+"-"+month+"-"+day;
+                //달력 날
+                Date = year+"-"+m+"-"+d;
                 textView.setText(Date+" 운동 일지");
                 rootRef = FirebaseDatabase.getInstance().getReference();
-                orderRef = rootRef.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1");
+//                user.getUid();
+                orderRef = rootRef.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1").child(Date);
 
                 orderRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if(task.isSuccessful()){
+                            dataList.clear();
                             for(DataSnapshot ds : task.getResult().getChildren()){
-                                String date = ds.getKey();
+                                String key = ds.getKey();
                                 String value = ds.getValue(String.class);
                                 Log.d("덤벨",Date);
-                                if(Date.equals(date)){
-                                    Log.d("덤벨",date+"일에"+value+"운동을");
-                                    StringTokenizer st = new StringTokenizer(value,",");
-                                    Log.d("덤벨","st");
-                                    while (st.hasMoreTokens()){
-                                        name = st.nextToken();
-                                        Log.d("덤벨","name : "+name);
-                                        count = st.nextToken();
-                                        Log.d("덤벨","count : "+count);
-                                        set = st.nextToken();
-                                        Log.d("덤벨","set : "+set);
-                                    }
-                                    dataList.add(new Listitem_healthy(name,count,set));
-                                    Log.d("덤벨",String.valueOf(dataList.size()));
-                                }else{
-                                    Log.d("덤벨","같지 않아서 출력될 께 없음.");
-                                }
+                                st(key,value);
                             }
                             FinishAdd();
                         }else{
@@ -107,8 +115,18 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
 
                     }
 
+                    private void st(String key, String value) {
+                        StringTokenizer st = new StringTokenizer(value,",");
+                        name = key;
+                        while (st.hasMoreTokens()){
+                            KG=st.nextToken();
+                            count = st.nextToken();
+                            set = st.nextToken();
+                        }
+                        dataList.add(new Listitem_healthy(name,count,set,KG));
+                    }
+
                     private void FinishAdd() {
-                        Log.d("덤벨","finishadd 메소드 실행");
                         recyclerView.setAdapter(adapter);
                     }
                 });
@@ -121,13 +139,44 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("덤벨",user.getUid());
+                Intent intent = new Intent(GuestDumbbell.this,Dialog_HealthyList.class);
+                startActivity(intent);
             }
         });
     }
 
     @Override
     public void onBtnClicked(int position) {
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_custom,null,false);
+        EditText ET_kg = (EditText) view.findViewById(R.id.DC_KG);
+        EditText ET_count = (EditText) view.findViewById(R.id.DC_count);
+        EditText ET_set = (EditText) view.findViewById(R.id.DC_set);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("운동 상세 정보 기록");
+        builder.setView(R.layout.dialog_custom);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.guest_dumbbell_RecyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        GuestHealthyAdapter adapter = new GuestHealthyAdapter(dataList);
+        builder.setPositiveButton("저장", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String totalString = "";
+                totalString = ET_kg.getText()+","+ET_count.getText()+","+ET_set.getText();
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put(name,totalString);
+                mDatabase.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1").child(Date).updateChildren(hashMap);
+                dataList.remove(position);
+                count = ET_kg.getText().toString().trim();
+                set = ET_set.getText().toString().trim();
+                KG=ET_kg.getText().toString().trim();
+                dataList.add(position,new Listitem_healthy(name,count,set,KG));
+
+            }
+        });
+        builder.setNegativeButton("취소", null);
+        builder.setView(view);
+        builder.show();
     }
 }

@@ -42,6 +42,7 @@ public class GuestHealthyAdapter extends RecyclerView.Adapter<GuestHealthyAdapte
         holder.tv_name.setText(item.getListitem_healthyname());
         holder.tv_count.setText(item.getListitem_healthycount());
         holder.tv_set.setText(item.getListitem_healthyset());
+        holder.tv_healthyKG.setText(item.getListitem_KG());
         if(myRecyclerViewClickListener!=null){
             final int pos = position;
             holder.btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +63,14 @@ public class GuestHealthyAdapter extends RecyclerView.Adapter<GuestHealthyAdapte
         TextView tv_name;
         TextView tv_count;
         TextView tv_set;
+        TextView tv_healthyKG;
         Button btnEdit;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.healthyname);
             tv_count = itemView.findViewById(R.id.healthycount);
             tv_set = itemView.findViewById(R.id.healthysetnum);
+            tv_healthyKG = itemView.findViewById(R.id.healthyKG);
             btnEdit = itemView.findViewById(R.id.Btn_edit);
 
         }

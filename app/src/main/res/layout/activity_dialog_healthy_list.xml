@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Dialog_HealthyList">
+
+
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RB_chest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="가슴" />
+                <RadioButton
+                    android:id="@+id/RB_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="등" />
+
+                <RadioButton
+                    android:id="@+id/RB_shoulder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="어깨" />
+
+                <RadioButton
+                    android:id="@+id/RB_arm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="팔" />
+                <RadioButton
+                    android:id="@+id/RB_leg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="하체" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TV_name"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="운동" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Healthy_List_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:scrollbarFadeDuration="0"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/healthy_recyclerview_item_list" />
+    </LinearLayout>
+
+
+</LinearLayout>
