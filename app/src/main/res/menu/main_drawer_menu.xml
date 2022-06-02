@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_information"
+            android:icon="@drawable/ic_pencil"
+            android:title="@string/editinformation"/>
         <item android:id="@+id/nav_Dumbbell"
             android:icon="@drawable/ic_dumbbell"
             android:title="@string/dumbbell"/>
+        <item android:id="@+id/nav_inbody"
+            android:icon="@drawable/ic_pencil"
+            android:title="@string/Inbody"/>
         <item android:id="@+id/nav_Pencil"
             android:icon="@drawable/ic_pencil"
             android:title="@string/pencil"/>

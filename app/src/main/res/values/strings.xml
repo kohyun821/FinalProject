@@ -5,6 +5,8 @@
     <string name="edit">회원 정보 수정</string>
     <string name="timetable">시간표 조회</string>
     <string name="plus">회원 등록</string>
+    <string name="editinformation">회원 정보 수정</string>
+    <string name="Inbody">인바디</string>
     <string name="menu_drawer_open">Drawer Open</string>
     <string name="menu_drawer_close">Drawer Close</string>
     <!-- TODO: Remove or change this placeholder text -->

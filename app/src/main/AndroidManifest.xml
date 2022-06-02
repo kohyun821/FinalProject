@@ -13,9 +13,25 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ListActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".UserInformationChange"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".InBody1"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Dialog_HealthyList"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".UserTimetable"
@@ -43,13 +59,8 @@
             android:exported="false" />
         <activity
             android:name=".GuestDumbbell"
-            android:exported="true"
+            android:exported="false"
             android:label="GuestDumbbell">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".GuestPencil"
@@ -58,7 +69,8 @@
         <activity
             android:name=".SplashActivity"
             android:exported="false"
-            android:label="SplashActivity" />
+            android:label="SplashActivity">
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:exported="false"

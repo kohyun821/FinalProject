@@ -40,6 +40,18 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()){
+            case R.id.nav_information:
+                startActivity(new Intent(this,UserInformationChange.class));
+                finish();
+//                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_inbody:
+                Intent intent = new Intent(this,InBody1.class);
+                startActivity(intent);
+//                startActivity(new Intent(this,InBody1.class));
+//                finish();
+//                overridePendingTransition(0,0);
+                break;
             case R.id.nav_Dumbbell:
                 startActivity(new Intent(this,GuestDumbbell.class));
                 finish();

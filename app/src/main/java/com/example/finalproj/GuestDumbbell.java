@@ -52,10 +52,12 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         activityGuestDumbbellBinding = ActivityGuestDumbbellBinding.inflate(getLayoutInflater());
         setContentView(activityGuestDumbbellBinding.getRoot());
         allocateActivityTitle("운동 기록 조회 및 등록");
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         calendarView = (CalendarView) findViewById(R.id.dumbbell_calview);
@@ -95,7 +97,7 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
                 textView.setText(Date+" 운동 일지");
                 rootRef = FirebaseDatabase.getInstance().getReference();
 //                user.getUid();
-                orderRef = rootRef.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1").child(Date);
+                orderRef = rootRef.child("Guest_Healthy").child(user.getUid()).child(Date);
 
                 orderRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
@@ -166,7 +168,7 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
                 totalString = ET_kg.getText()+","+ET_count.getText()+","+ET_set.getText();
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put(name,totalString);
-                mDatabase.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1").child(Date).updateChildren(hashMap);
+                mDatabase.child("Guest_Healthy").child(user.getUid()).child(Date).updateChildren(hashMap);
                 dataList.remove(position);
                 count = ET_kg.getText().toString().trim();
                 set = ET_set.getText().toString().trim();
