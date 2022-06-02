@@ -23,13 +23,13 @@
                 android:id="@+id/ex_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="테스트"/>
+                android:text="운동명"/>
 
             <TextView
                 android:id="@+id/ex_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="테스트22"/>
+                android:text="운동정보"/>
 
 
         </LinearLayout>

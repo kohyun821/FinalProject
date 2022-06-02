@@ -1,6 +1,7 @@
 package com.example.finalproj;
 
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,12 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder>{
 
     private ArrayList<MainData> arrayList;
+    private Context context;
 
+    public MainAdapter(ArrayList<MainData>arrayList, Context context){
+        this.arrayList = arrayList;
+        this.context = context;
+    }
     public MainAdapter(ArrayList<MainData> arrayList) {
         this.arrayList = arrayList;
     }
@@ -32,7 +38,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MainAdapter.CustomViewHolder holder, int position) {
         holder.iv_profile.setImageResource(arrayList.get(position).getIv_profile());
         holder.ex_name.setText(arrayList.get(position).getEx_name());
         holder.ex_info.setText(arrayList.get(position).getEx_info());
