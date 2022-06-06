@@ -14,14 +14,24 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".InBodySignIn"
+            android:name=".UserChange"
+            android:exported="true" />
+        <activity
+            android:name=".UserInformationChange"
+            android:exported="true" />
+        <activity
+            android:name=".ListActivity"
             android:exported="false" />
         <activity
             android:name=".InBody1"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CreateQR"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false"
+            android:label="SplashActivity" />
         <activity
             android:name=".GuestDumbbell"
             android:exported="false"
@@ -31,9 +41,9 @@
             android:exported="false"
             android:label="GuestPencil" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:label="SplashActivity">
+            android:label="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,10 +58,6 @@
             android:name=".SignInActivity"
             android:exported="false"
             android:label="SignInActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="MainActivity" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="false"

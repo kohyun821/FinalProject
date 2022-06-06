@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button createQRBtn;
     private Button InBodyIPBtn;
+    private Button UserInformationBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         createQRBtn = (Button) findViewById(R.id.createQR);
         InBodyIPBtn = (Button) findViewById(R.id.InBodyIP);
+        UserInformationBtn = (Button) findViewById(R.id.UserInformation);
 
         createQRBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -30,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
         InBodyIPBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, InBody1.class);
+                startActivity(intent);
+            }
+        });
+
+        UserInformationBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, UserInformationChange.class);
                 startActivity(intent);
             }
         });
