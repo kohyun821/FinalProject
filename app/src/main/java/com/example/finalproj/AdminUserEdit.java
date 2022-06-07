@@ -132,7 +132,7 @@ public class AdminUserEdit extends AdminDrawerBaseActivity implements UserEditLi
                                     }
                                     Calendar calendar = Calendar.getInstance();
                                     tYear=calendar.get(Calendar.YEAR);
-                                    tMonth=calendar.get(Calendar.MONTH);
+                                    tMonth=calendar.get(Calendar.MONTH)+1;
                                     tDay=calendar.get(Calendar.DAY_OF_MONTH);
 
                                     Calendar today = Calendar.getInstance();

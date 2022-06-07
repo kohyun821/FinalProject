@@ -1,161 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Search_Timetable"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".GuestPencil">
+    android:gravity="center"
+    android:layout_margin="10dp">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/dialog_timetable_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:enabled="false"
         android:gravity="center"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:hint="트레이너 명이 표시 됩니다."
+        android:textSize="20dp"
+        android:textStyle="bold">
 
-        <TextView
-            android:id="@+id/Gt_text_trainername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:enabled="false"
-            android:gravity="center"
-            android:hint="트레이너 명이 표시 됩니다."
-            android:textSize="20dp"
-            android:textStyle="bold">
-        </TextView>
-
-    </RelativeLayout>
+    </TextView>
     <RelativeLayout
-        android:id="@+id/RelativeLayout_searching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@id/Gt_btn_changeTime"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
-        <EditText
-            android:id="@+id/Gt_edittext_trainername"
+        <LinearLayout
+            android:id="@+id/yellow_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@id/Gt_btn_searchtrainer"
-            android:hint="강사 이름으로 검색"
-            android:textSize="20dp" />
+            android:orientation="vertical"
+            android:padding="5dp">
 
-        <Button
-            android:id="@+id/Gt_btn_searchtrainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/btncustom"
-            android:backgroundTint="@color/matching"
-            android:onClick="buttonSearching"
-            android:padding="3dp"
-            android:text="검색하기"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/yellow"
+                android:enabled="false" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@id/Gt_btn_changeTime"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-
-            <LinearLayout
-                android:id="@+id/yellow_linearLayout"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/yellow"
-                    android:enabled="false" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="선택\n가능"
-                    android:textSize="13dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/blue_linearlayout"
-                android:layout_toRightOf="@+id/yellow_linearLayout"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:text="선택\n가능"
+                android:textSize="13dp" />
+        </LinearLayout>
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"
-                    android:enabled="false" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/blue_linearlayout"
+            android:layout_toRightOf="@+id/yellow_linearLayout"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="다른\n사용자"
-                    android:textSize="13dp" />
-            </LinearLayout>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/black"
+                android:enabled="false" />
 
-            <LinearLayout
-                android:id="@+id/blue_linearlayout"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="다른\n사용자"
+                android:textSize="13dp" />
+        </LinearLayout>
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/blue"
-                    android:enabled="false" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="나의\n시간"
-                    android:textSize="13dp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/Gt_btn_changeTime"
+        <LinearLayout
+            android:id="@+id/blue_linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/btncustom"
-            android:backgroundTint="@color/matching"
-            android:onClick="buttonChangeTime"
-            android:text="시간 변경"
-            android:textStyle="bold"></Button>
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/blue"
+                android:enabled="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="나의\n시간"
+                android:textSize="13dp" />
+        </LinearLayout>
     </RelativeLayout>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -262,7 +206,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A1"
+                    android:id="@+id/Dialog_A1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -272,7 +216,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B1"
+                    android:id="@+id/Dialog_B1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -283,7 +227,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C1"
+                    android:id="@+id/Dialog_C1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -294,7 +238,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D1"
+                    android:id="@+id/Dialog_D1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -305,7 +249,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E1"
+                    android:id="@+id/Dialog_E1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -316,7 +260,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F1"
+                    android:id="@+id/Dialog_F1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -327,7 +271,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G1"
+                    android:id="@+id/Dialog_G1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -348,19 +292,8 @@
                     android:textStyle="bold"></TextView>
 
                 <Button
-                    android:id="@+id/A2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
-                    android:layout_weight="1"
                     android:background="@color/yellow"
-                    android:gravity="center"
-                    android:textSize="10dp"
-                    android:textStyle="bold"></Button>
-
-                <Button
-                    android:background="@color/yellow"
-                    android:id="@+id/B2"
+                    android:id="@+id/Dialog_A2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -371,7 +304,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C2"
+                    android:id="@+id/Dialog_B2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -382,7 +315,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D2"
+                    android:id="@+id/Dialog_C2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -393,7 +326,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E2"
+                    android:id="@+id/Dialog_D2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -404,7 +337,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F2"
+                    android:id="@+id/Dialog_E2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -415,7 +348,18 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G2"
+                    android:id="@+id/Dialog_F2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold"></Button>
+
+                <Button
+                    android:background="@color/yellow"
+                    android:id="@+id/Dialog_G2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -437,7 +381,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A3"
+                    android:id="@+id/Dialog_A3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -448,7 +392,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B3"
+                    android:id="@+id/Dialog_B3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -459,7 +403,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C3"
+                    android:id="@+id/Dialog_C3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -470,7 +414,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D3"
+                    android:id="@+id/Dialog_D3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -481,7 +425,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E3"
+                    android:id="@+id/Dialog_E3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -492,7 +436,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F3"
+                    android:id="@+id/Dialog_F3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -503,7 +447,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G3"
+                    android:id="@+id/Dialog_G3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -525,7 +469,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A4"
+                    android:id="@+id/Dialog_A4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -536,7 +480,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B4"
+                    android:id="@+id/Dialog_B4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -547,7 +491,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C4"
+                    android:id="@+id/Dialog_C4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -558,7 +502,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D4"
+                    android:id="@+id/Dialog_D4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -569,7 +513,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E4"
+                    android:id="@+id/Dialog_E4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -580,7 +524,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F4"
+                    android:id="@+id/Dialog_F4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -591,7 +535,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G4"
+                    android:id="@+id/Dialog_G4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -613,7 +557,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A5"
+                    android:id="@+id/Dialog_A5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -623,7 +567,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B5"
+                    android:id="@+id/Dialog_B5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -633,18 +577,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="10dp"
-                    android:textStyle="bold"></Button>
-
-                <Button
-                    android:background="@color/yellow"
-                    android:id="@+id/D5"
+                    android:id="@+id/Dialog_C5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -655,7 +588,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E5"
+                    android:id="@+id/Dialog_D5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -666,7 +599,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F5"
+                    android:id="@+id/Dialog_E5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -677,7 +610,18 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G5"
+                    android:id="@+id/Dialog_F5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold"></Button>
+
+                <Button
+                    android:background="@color/yellow"
+                    android:id="@+id/Dialog_G5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -699,7 +643,7 @@
                 </TextView>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A6"
+                    android:id="@+id/Dialog_A6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -710,7 +654,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B6"
+                    android:id="@+id/Dialog_B6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -720,18 +664,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="10dp"
-                    android:textStyle="bold"></Button>
-
-                <Button
-                    android:background="@color/yellow"
-                    android:id="@+id/D6"
+                    android:id="@+id/Dialog_C6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -742,7 +675,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E6"
+                    android:id="@+id/Dialog_D6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -753,7 +686,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F6"
+                    android:id="@+id/Dialog_E6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -764,7 +697,18 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G6"
+                    android:id="@+id/Dialog_F6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold"></Button>
+
+                <Button
+                    android:background="@color/yellow"
+                    android:id="@+id/Dialog_G6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -786,7 +730,7 @@
                 </TextView>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A7"
+                    android:id="@+id/Dialog_A7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -796,7 +740,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B7"
+                    android:id="@+id/Dialog_B7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -807,7 +751,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C7"
+                    android:id="@+id/Dialog_C7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -817,7 +761,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D7"
+                    android:id="@+id/Dialog_D7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -827,7 +771,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E7"
+                    android:id="@+id/Dialog_E7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -837,7 +781,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F7"
+                    android:id="@+id/Dialog_F7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -847,7 +791,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G7"
+                    android:id="@+id/Dialog_G7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -868,7 +812,7 @@
                 </TextView>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A8"
+                    android:id="@+id/Dialog_A8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -878,7 +822,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B8"
+                    android:id="@+id/Dialog_B8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -889,7 +833,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C8"
+                    android:id="@+id/Dialog_C8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -899,7 +843,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D8"
+                    android:id="@+id/Dialog_D8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -909,7 +853,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E8"
+                    android:id="@+id/Dialog_E8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -919,7 +863,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F8"
+                    android:id="@+id/Dialog_F8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -929,7 +873,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G8"
+                    android:id="@+id/Dialog_G8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -950,7 +894,7 @@
                 </TextView>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A9"
+                    android:id="@+id/Dialog_A9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -960,7 +904,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B9"
+                    android:id="@+id/Dialog_B9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -971,7 +915,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C9"
+                    android:id="@+id/Dialog_C9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -981,7 +925,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D9"
+                    android:id="@+id/Dialog_D9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -991,7 +935,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E9"
+                    android:id="@+id/Dialog_E9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1001,7 +945,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F9"
+                    android:id="@+id/Dialog_F9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1011,7 +955,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G9"
+                    android:id="@+id/Dialog_G9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1032,7 +976,7 @@
                 </TextView>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/A10"
+                    android:id="@+id/Dialog_A10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1042,7 +986,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/B10"
+                    android:id="@+id/Dialog_B10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1053,7 +997,7 @@
 
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/C10"
+                    android:id="@+id/Dialog_C10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1063,7 +1007,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/D10"
+                    android:id="@+id/Dialog_D10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1073,7 +1017,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/E10"
+                    android:id="@+id/Dialog_E10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1083,7 +1027,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/F10"
+                    android:id="@+id/Dialog_F10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1093,7 +1037,7 @@
                 </Button>
                 <Button
                     android:background="@color/yellow"
-                    android:id="@+id/G10"
+                    android:id="@+id/Dialog_G10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -1104,7 +1048,4 @@
             </TableRow>
         </TableLayout>
     </ScrollView>
-
-
-
 </LinearLayout>

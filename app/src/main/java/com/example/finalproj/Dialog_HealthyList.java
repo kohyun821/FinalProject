@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,9 +39,6 @@ public class Dialog_HealthyList extends AppCompatActivity implements Dialog_Heal
     ArrayList<HealthyList> dataList = new ArrayList<>();
 
     public String dating="";
-
-    GuestDumbbell guestDumbbell = new GuestDumbbell();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,6 +207,10 @@ public class Dialog_HealthyList extends AppCompatActivity implements Dialog_Heal
         EditText ET_set = (EditText) view.findViewById(R.id.DC_set);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        Intent Dialog_HealthyList_Intent = getIntent();
+        String PK = Dialog_HealthyList_Intent.getStringExtra("PK").trim();
+        dating = Dialog_HealthyList_Intent.getStringExtra("Date").trim();
         builder.setTitle("운동 상세 정보 기록");
         builder.setView(R.layout.dialog_custom);
         builder.setPositiveButton("저장", new DialogInterface.OnClickListener() {
@@ -216,12 +218,13 @@ public class Dialog_HealthyList extends AppCompatActivity implements Dialog_Heal
             public void onClick(DialogInterface dialogInterface, int i) {
                 String totalString = "";
                 totalString = ET_kg.getText()+","+ET_count.getText()+","+ET_set.getText();
-                dating= guestDumbbell.Date;
+
+//                dating= guestDumbbell.Date;
                 Log.d("클릭","date : " + dating);
 
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put(dataList.get(position).getHealthyList_name(),totalString);
-                mDatabase.child("Guest_Healthy").child("vo4Q22g6OKV82MmVM4bVCMFtUtv1").child(dating).updateChildren(hashMap);
+                mDatabase.child("Guest_Healthy").child(PK).child(dating).updateChildren(hashMap);
                 finish();
             }
         });

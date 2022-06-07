@@ -57,7 +57,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 finish();
 //                overridePendingTransition(0,0);
                 break;
-            case R.id.nav_Pencil:
+            case R.id.nav_guest_timetable:
                 startActivity(new Intent(this,GuestPencil.class));
                 finish();
 //                overridePendingTransition(0,0);

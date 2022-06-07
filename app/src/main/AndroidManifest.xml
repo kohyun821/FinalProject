@@ -13,26 +13,21 @@
         android:theme="@style/Theme.FinalProj"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ListActivity"
+            android:name=".Search_Timetable"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".ListActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".UserInformationChange"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".InBody1"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".Dialog_HealthyList"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".UserTimetable"
             android:exported="false" />
@@ -41,7 +36,8 @@
             android:exported="false" />
         <activity
             android:name=".TrainerTimeTable"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".TrainerDrawerBaseActivity"
             android:exported="false" />
@@ -60,17 +56,21 @@
         <activity
             android:name=".GuestDumbbell"
             android:exported="false"
-            android:label="GuestDumbbell">
-        </activity>
+            android:label="GuestDumbbell"></activity>
         <activity
             android:name=".GuestPencil"
-            android:exported="false"
-            android:label="GuestPencil" />
+            android:exported="true"
+            android:label="GuestPencil">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="false"
-            android:label="SplashActivity">
-        </activity>
+            android:label="SplashActivity"></activity>
         <activity
             android:name=".SignUpActivity"
             android:exported="false"

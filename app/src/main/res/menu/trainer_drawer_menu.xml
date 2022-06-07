@@ -7,7 +7,7 @@
     </group>
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_timetable"
-            android:icon="@drawable/ic_pencil"
+            android:icon="@drawable/ic_timetable"
             android:title="@string/timetable"/>
     </group>
 </menu>

@@ -10,9 +10,9 @@
         <item android:id="@+id/nav_inbody"
             android:icon="@drawable/ic_pencil"
             android:title="@string/Inbody"/>
-        <item android:id="@+id/nav_Pencil"
-            android:icon="@drawable/ic_pencil"
-            android:title="@string/pencil"/>
+        <item android:id="@+id/nav_guest_timetable"
+            android:icon="@drawable/ic_timetable"
+            android:title="@string/timetable"/>
     </group>
 
 </menu>

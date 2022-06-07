@@ -45,14 +45,13 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
     DatabaseReference mDatabase;
 
     private String name="",count="",set="",KG="";
-    public String Date="2022-06-02";
+    public String Date="";
     ArrayList<Listitem_healthy> dataList = new ArrayList<>();
     RecyclerView recyclerView;
     GuestHealthyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         activityGuestDumbbellBinding = ActivityGuestDumbbellBinding.inflate(getLayoutInflater());
         setContentView(activityGuestDumbbellBinding.getRoot());
@@ -71,6 +70,7 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
 
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            //달력 클릭 날에 추가 하기
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i2, int i3) {
                 button.setVisibility(View.VISIBLE);
@@ -142,6 +142,8 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(GuestDumbbell.this,Dialog_HealthyList.class);
+                intent.putExtra("PK",user.getUid());
+                intent.putExtra("Date",Date);
                 startActivity(intent);
             }
         });
@@ -149,6 +151,7 @@ public class GuestDumbbell extends DrawerBaseActivity implements GuestHealthyAda
 
     @Override
     public void onBtnClicked(int position) {
+        //수정하기
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_custom,null,false);
         EditText ET_kg = (EditText) view.findViewById(R.id.DC_KG);
         EditText ET_count = (EditText) view.findViewById(R.id.DC_count);
