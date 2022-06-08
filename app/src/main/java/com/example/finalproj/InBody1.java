@@ -110,20 +110,25 @@ public class InBody1 extends DrawerBaseActivity {
                     HashMap<String,Object> hashmap_fat = new HashMap<>();
                     HashMap<String,Object> hashmap_fat_mass = new HashMap<>();
 
-                    hashmap_skeletal_mass.put(date,skeletal_mass);
-                    hashmap_fat.put(date,fat);
-                    hashmap_fat_mass.put(date,fat_mass);
+//                    hashmap_skeletal_mass.put(date,skeletal_mass);
+//                    hashmap_fat.put(date,fat);
+//                    hashmap_fat_mass.put(date,fat_mass);
 
+                    hashmap_skeletal_mass.put("skeletal_mass",skeletal_mass);
+                    hashmap_fat.put("fat",fat);
+                    hashmap_fat_mass.put("fat_mass",fat_mass);
                     mDatabase.child("InBodyUser")
                             .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
-                            .child("skeletal_mass").updateChildren(hashmap_skeletal_mass);//골격근량 저장
+                            .child(date).updateChildren(hashmap_skeletal_mass);//골격근량 저장
                     mDatabase.child("InBodyUser")
                             .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
-                            .child("fat").updateChildren(hashmap_fat);//체중 저장
+                            .child(date).updateChildren(hashmap_fat);//체중 저장
                     mDatabase.child("InBodyUser")
                             .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
-                            .child("fat_mass").updateChildren(hashmap_fat_mass);//체지방량 저장
-
+                            .child(date).updateChildren(hashmap_fat_mass);//체지방량 저장
+                    editTextDate.setText(null);
+                    editTextDate2.setText(null);
+                    editTextDate3.setText(null);
 
                 }
             }

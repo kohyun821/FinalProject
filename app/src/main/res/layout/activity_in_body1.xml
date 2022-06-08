@@ -11,8 +11,10 @@
 
     <Button
         android:id="@+id/IFIP"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/matching"
+        android:background="@drawable/btncustom"
         android:layout_marginStart="63dp"
         android:layout_marginEnd="23dp"
         android:text="기록"
@@ -22,8 +24,10 @@
 
     <Button
         android:id="@+id/LookList"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/matching"
+        android:background="@drawable/btncustom"
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="245dp"
         android:text="리스트 보기"

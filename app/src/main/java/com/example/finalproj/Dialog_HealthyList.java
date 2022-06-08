@@ -29,14 +29,14 @@ import java.util.HashMap;
 
 public class Dialog_HealthyList extends AppCompatActivity implements Dialog_Healthy_Adapter.MyRecyclerViewClickListener {
 
-    RadioButton radio_chest,radio_back,radio_arm,radio_shoulder,radio_leg;
-    RadioGroup radioGroup;
-    TextView tv_name;
-    ImageView imageView;
-    DatabaseReference rootRef;
-    DatabaseReference orderRef;
-    DatabaseReference mDatabase;
-    ArrayList<HealthyList> dataList = new ArrayList<>();
+    private RadioButton radio_chest,radio_back,radio_arm,radio_shoulder,radio_leg;
+    private RadioGroup radioGroup;
+    private TextView tv_name;
+    private ImageView imageView;
+    private DatabaseReference rootRef;
+    private DatabaseReference orderRef;
+    private DatabaseReference mDatabase;
+    private ArrayList<HealthyList> dataList = new ArrayList<>();
 
     public String dating="";
 

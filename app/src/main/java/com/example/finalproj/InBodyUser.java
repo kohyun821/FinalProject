@@ -1,50 +1,50 @@
 package com.example.finalproj;
 
 public class InBodyUser {
-    private String userday;
-    private String userifm;
-    private String userifm2;
-    private String userifm3;
+    private String date;
+    private String fat;
+    private String skeletal_mass;
+    private String fat_mass;
 
     public InBodyUser(){
 
     }
-    public InBodyUser(String user_day, String userifm, String userifm3, String userifm2){
-        this.userday = user_day;
-        this.userifm = userifm;
-        this.userifm3 = userifm3;
-        this.userifm2 = userifm2;
+    public InBodyUser(String date, String fat, String fat_mass, String skeletal_mass){
+        this.date = date;
+        this.fat = fat;
+        this.fat_mass = fat_mass;
+        this.skeletal_mass = skeletal_mass;
     }
 
-    public String getUserday() {
-        return userday;
+    public String getdate() {
+        return date;
     }
 
-    public void setUserday(String userday) {
-        this.userday = userday;
+    public void setdate(String date) {
+        this.date = date;
     }
 
-    public String getUserifm() {
-        return userifm;
+    public String getfat() {
+        return fat;
     }
 
-    public void setUserifm(String userifm) {
-        this.userifm = userifm;
+    public void setfat(String fat) {
+        this.fat = fat;
     }
 
-    public String getUserifm2() {
-        return userifm2;
+    public String getskeletal_mass() {
+        return skeletal_mass;
     }
 
-    public void setUserifm2(String userifm2) {
-        this.userifm2 = userifm2;
+    public void setskeletal_mass(String skeletal_mass) {
+        this.skeletal_mass = skeletal_mass;
     }
 
-    public String getUserifm3() {
-        return userifm3;
+    public String getfat_mass() {
+        return fat_mass;
     }
 
-    public void setUserifm3(String userifm3) {
-        this.userifm3 = userifm3;
+    public void setfat_mass(String fat_mass) {
+        this.fat_mass = fat_mass;
     }
 }
