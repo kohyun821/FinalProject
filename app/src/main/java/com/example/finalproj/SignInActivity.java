@@ -37,6 +37,7 @@ public class SignInActivity extends AppCompatActivity {
     FirebaseUser user = mAuth.getCurrentUser();
     DatabaseReference rootRef;
     DatabaseReference orderRef;
+    WelcomeActivity wA = (WelcomeActivity) WelcomeActivity._WelcomActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,16 +113,19 @@ public class SignInActivity extends AppCompatActivity {
 
                                             //userAuth가 회원이라면 DashboardActivity를 시행
                                             if(key.equals("auth") && value.equals("회원")){
-                                                finish();
                                                 startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                                                finish();
+                                                wA.finish();
                                             }
                                             if(key.equals("auth") && value.equals("admin")){
-                                                finish();
                                                 startActivity(new Intent(SignInActivity.this,AdminDashboard.class));
+                                                finish();
+                                                wA.finish();
                                             }
                                             if(key.equals("auth") && value.equals("트레이너")){
-                                                finish();
                                                 startActivity(new Intent(SignInActivity.this,TrainerActivity.class));
+                                                finish();
+                                                wA.finish();
                                             }
                                         }
                                     } else {

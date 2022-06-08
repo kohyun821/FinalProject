@@ -85,8 +85,8 @@ public class Search_Timetable extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v){
         Button newButton = (Button) v;
-//        String UserPK = user.getUid();
-        String UserPK = "mOdjnMkh5NRxTenMNk29LYNy2xt1";
+        String UserPK = user.getUid();
+//        String UserPK = "mOdjnMkh5NRxTenMNk29LYNy2xt1";
         String btnAdr = "";
 
         HashMap<String,Object> hashMap = new HashMap<>();
@@ -213,6 +213,7 @@ public class Search_Timetable extends AppCompatActivity implements View.OnClickL
             }
 
             private void searching2(String s) {
+                //s->강사의 PK
                 rootRef = FirebaseDatabase.getInstance().getReference();
                 orderRef = rootRef.child("Trainer_TimeTable").child(s);
                 Log.d("서치","성공!  searching2 in");
@@ -226,6 +227,12 @@ public class Search_Timetable extends AppCompatActivity implements View.OnClickL
                                 String key = ds.getKey();
                                 String value = ds.getValue(String.class);
                                 Log.d("서치","key is : "+key);
+                                for(int b=0;b<DialogTrainer.size();b++){
+                                    if(DialogTrainer.get(b).getUid().trim().equals(s.trim())){
+                                        tv.setText(DialogTrainer.get(b).getName()+"강사님의 시간표");
+                                        tv.setTextColor(Color.BLACK);
+                                    }
+                                }
                                 if(value.equals("null")){
                                     for(int i=0;i<dialogbtnAry.size();i++){
                                         String text = getResources().getResourceName(dialogbtnAry.get(i).getId());
@@ -256,13 +263,6 @@ public class Search_Timetable extends AppCompatActivity implements View.OnClickL
                             }
                         } else {
                             Log.d("TAG", task.getException().getMessage()); //Don't ignore potential errors!
-                        }
-                        Log.d("서치테이블",s);
-                        for(int b=0;b<DialogTrainer.size();b++){
-                            if(DialogTrainer.get(b).getUid().trim().equals(s.trim())){
-                                tv.setText(DialogTrainer.get(b).getName());
-                                tv.setTextColor(Color.BLACK);
-                            }
                         }
                     }
                 });
