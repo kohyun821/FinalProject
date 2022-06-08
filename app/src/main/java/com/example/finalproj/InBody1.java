@@ -118,13 +118,13 @@ public class InBody1 extends DrawerBaseActivity {
                     hashmap_fat.put("fat",fat);
                     hashmap_fat_mass.put("fat_mass",fat_mass);
                     mDatabase.child("InBodyUser")
-                            .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
+                            .child(user.getUid()/*<-- user.getUid로 변경 해 주어야 함*/)
                             .child(date).updateChildren(hashmap_skeletal_mass);//골격근량 저장
                     mDatabase.child("InBodyUser")
-                            .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
+                            .child(user.getUid())
                             .child(date).updateChildren(hashmap_fat);//체중 저장
                     mDatabase.child("InBodyUser")
-                            .child("mOdjnMkh5NRxTenMNk29LYNy2xt1"/*<-- user.getUid로 변경 해 주어야 함*/)
+                            .child(user.getUid())
                             .child(date).updateChildren(hashmap_fat_mass);//체지방량 저장
                     editTextDate.setText(null);
                     editTextDate2.setText(null);

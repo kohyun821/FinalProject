@@ -55,8 +55,8 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         InBodyUserAdapter adapter = new InBodyUserAdapter(dataList);
 
-//        UserPK = user.getUid();
-        UserPK="mOdjnMkh5NRxTenMNk29LYNy2xt1";
+        UserPK = user.getUid();
+//        UserPK="mOdjnMkh5NRxTenMNk29LYNy2xt1";
 
         rootRef = FirebaseDatabase.getInstance().getReference();
         orderRef = rootRef.child("InBodyUser").child(UserPK);

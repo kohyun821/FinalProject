@@ -46,6 +46,7 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
 
     ArrayList<TrainerUser_guestpencil> trainerUser_guestpencilArrayList = new ArrayList<>();
     private String trainerPK="";
+    private String TimeTableAuth="";
 
 
     Button btn_searchtrainer,btn_changeTime;
@@ -79,7 +80,6 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
         edittext_trainername = (EditText) findViewById(R.id.Gt_edittext_trainername);
         Gt_text_trainername = (TextView) findViewById(R.id.Gt_text_trainername);
         btn_searchtrainer = (Button) findViewById(R.id.Gt_btn_searchtrainer);
-        btn_changeTime = (Button) findViewById(R.id.Gt_btn_changeTime);
         relativeLayout = (RelativeLayout) findViewById(R.id.RelativeLayout_searching);
 
 
@@ -204,8 +204,8 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
     private void searching() {
         rootRef = FirebaseDatabase.getInstance().getReference();
         orderRef = rootRef.child("Trainer_TimeTable");
-//        String UserPK = user.getUid();
-        String UserPK = "mOdjnMkh5NRxTenMNk29LYNy2xt1";
+        String UserPK = user.getUid();
+//        String UserPK = "mOdjnMkh5NRxTenMNk29LYNy2xt1";
         orderRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -237,6 +237,8 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
                                 //내가 해당 강사에게 포함 되어 있을 경우
                                 if(val.equals(UserPK.trim())){
                                     searching3(s);
+                                    TimeTableAuth="false";
+
                                 }else{
                                     //표현하지 않음
                                 }
@@ -428,23 +430,10 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
                     //근데 그 유저가 트레이너 라면
                     Intent intent = new Intent(GuestPencil.this,Search_Timetable.class);
                     intent.putExtra("searchKey",trainerUser_guestpencilArrayList.get(i).getUid().trim());
+                    intent.putExtra("timetableauth",TimeTableAuth);
                     //그 트레이너의 PK를 넘겨줘라
                     startActivity(intent);
                 }
-            }
-        }
-    }
-    public void buttonChangeTime(View view){
-        //어떻게 하지?
-        for(int i=0;i<btnAry.size();i++){
-            ColorDrawable color = (ColorDrawable) btnAry.get(i).getBackground();
-            int bgColor = color.getColor();
-            if(String.valueOf(bgColor).trim().equals("-5317")
-                    ||String.valueOf(bgColor).trim().equals("-65536")
-            ){
-                //색이 yellow / red일 경우
-                btnAry.get(i).setEnabled(true);
-                //버튼 클릭 가능하게
             }
         }
     }

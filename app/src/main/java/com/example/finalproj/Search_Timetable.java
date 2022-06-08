@@ -30,6 +30,7 @@ import java.util.StringTokenizer;
 public class Search_Timetable extends AppCompatActivity implements View.OnClickListener {
 
     private String searchkey = "";
+    private String searchTimeTableAuth = "";
 
     private DatabaseReference rootRef;
     private DatabaseReference orderRef;
@@ -64,12 +65,16 @@ public class Search_Timetable extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_search_timetable);
 
         Intent secIntent = getIntent();
-        searchkey = "W4Gx8BI9FpdoTJEBg3MboEgF65c2";
-//        searchkey = secIntent.getStringExtra("searchKey").trim();
+//        searchkey = "W4Gx8BI9FpdoTJEBg3MboEgF65c2";
+        searchkey = secIntent.getStringExtra("searchKey").trim();
+        searchTimeTableAuth = secIntent.getStringExtra("timetableauth").trim();
         
         dialogbtnsave();
         for(int i=0;i<dialogbtnAry.size();i++)
         {
+            if(searchTimeTableAuth.equals("false")){
+                dialogbtnAry.get(i).setEnabled(false);
+            }
             dialogbtnAry.get(i).setBackgroundColor(Color.YELLOW);
             dialogbtnAry.get(i).setOnClickListener(this);
         }
