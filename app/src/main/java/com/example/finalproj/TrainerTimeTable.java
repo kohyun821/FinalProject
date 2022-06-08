@@ -109,15 +109,20 @@ public class TrainerTimeTable extends TrainerDrawerBaseActivity implements View.
                                 }
                                 //파이어베이스에 있는 키 값이랑, 버튼의 ID가 같다면 색을 바꿀 것
                                 if(ID.equals(text)){
-                                    Trainer_TimeTable_btnAry.get(i).setBackgroundColor(Color.BLUE);
-                                    Trainer_TimeTable_btnAry.get(i).setEnabled(true);
-                                    for(int j=0;j<timtTableUserArrayList.size();j++){
-                                        if(value.trim().equals(timtTableUserArrayList.get(j).getPK().trim())){
-                                            //value값이랑 pk가 같은 유저를 찾아서 이름 바꾸기
-                                            Trainer_TimeTable_btnAry.get(i).setText(timtTableUserArrayList.get(j).getName().trim());//value가 아닌 이름이 들어가야함
-                                            Trainer_TimeTable_btnAry.get(i).setTextColor(Color.WHITE);
+                                    if(value.equals("null")){
+                                        Trainer_TimeTable_btnAry.get(i).setBackgroundColor(Color.YELLOW);
+                                        Trainer_TimeTable_btnAry.get(i).setEnabled(false);
+                                    }else {
+                                        Trainer_TimeTable_btnAry.get(i).setBackgroundColor(Color.BLUE);
+                                        Trainer_TimeTable_btnAry.get(i).setEnabled(true);
+                                        for(int j=0;j<timtTableUserArrayList.size();j++){
+                                            if(value.trim().equals(timtTableUserArrayList.get(j).getPK().trim())){
+                                                //value값이랑 pk가 같은 유저를 찾아서 이름 바꾸기
+                                                Trainer_TimeTable_btnAry.get(i).setText(timtTableUserArrayList.get(j).getName().trim());//value가 아닌 이름이 들어가야함
+                                                Trainer_TimeTable_btnAry.get(i).setTextColor(Color.WHITE);
 
-                                            SureTimeTableUserArrayList.add(new TimtTableUser(timtTableUserArrayList.get(j).getPK().trim(),timtTableUserArrayList.get(j).getName(),text));
+                                                SureTimeTableUserArrayList.add(new TimtTableUser(timtTableUserArrayList.get(j).getPK().trim(),timtTableUserArrayList.get(j).getName(),text));
+                                            }
                                         }
                                     }
                                 }
