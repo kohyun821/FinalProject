@@ -241,6 +241,10 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
 
                                 }else{
                                     //표현하지 않음
+                                    for(int i=0; i<btnAry.size();i++){
+                                        btnAry.get(i).setBackgroundColor(Color.YELLOW);
+                                        btnAry.get(i).setEnabled(false);
+                                    }
                                 }
                             }
                         } else {
@@ -248,6 +252,10 @@ public class GuestPencil extends DrawerBaseActivity implements View.OnClickListe
                         }
                     }
                     private void searching3(String s) {
+                        for(int i=0; i<btnAry.size();i++){
+                            btnAry.get(i).setBackgroundColor(Color.YELLOW);
+                            btnAry.get(i).setEnabled(true);
+                        }
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         orderRef = rootRef.child("Trainer_TimeTable").child(s);
                         orderRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
